@@ -1,15 +1,14 @@
 import random
 import sys
-# sentence = [ "how", "now tow bow"]
 def rearrange(sentence):
-  split_words = sentence.split(" ")
+  words = sentence.split(" ")
+  # print(split_words)
   new_sentence = []
 
-  while len(split_words) > 0:
-    for _ in range(len(split_words)):
-      rand_index = random.randint(0, len(split_words) - 1)
-      new_sentence.append(split_words[rand_index])
-      split_words.remove(split_words[rand_index])
+  for _ in range(len(words)):
+    random_index = random.randint(0, len(words) - 1) #one word index
+    new_sentence.append(words[random_index])
+    words.remove(words[random_index])
   
 #   return (' '.join(new_sentence))
   print(' '.join(new_sentence))
