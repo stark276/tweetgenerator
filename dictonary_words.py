@@ -7,8 +7,7 @@ with open("/usr/share/dict/words", "r") as f:
 
     for line in f:
         file_content.append(line.strip())
-
-
+# print(file_content)
 
 def random_sentence(words_list, length):
     choosen_words = []

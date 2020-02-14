@@ -1,11 +1,15 @@
 import sys
 def open_file(text):
     f_histogram = open("words.txt", "r")
+    # lines = f_histogram.readlines()
+    # lines = lines.strip()
     file_content = []
     for line in f_histogram:
         # split creates another list, if you use append, you will create a list of lists; but with extend you create just 1
         file_content.extend(line.split())
     return file_content
+
+    #--------------------
 def histogram(file_content):
     histogram = {}
     for word in file_content:
@@ -25,5 +29,6 @@ def frequency(word, histogram):
         if key == word:
             return value
 if __name__ == "__main__":
-    words = open_file("book.txt")
+    words = open_file("words.txt")
     print(histogram(words))
+    unique_words(zmzdr)
