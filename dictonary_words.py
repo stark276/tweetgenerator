@@ -21,7 +21,7 @@ def random_sentence(words_list, length):
     print(" ".join(choosen_words))
 
 if __name__ == "__main__":
-    params = sys.argv[1:] 
+    params = sys.argv[1:]
     number = int(params[0])
     if number < 2:
         print("Not enough for sentence")

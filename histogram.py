@@ -30,5 +30,7 @@ def frequency(word, histogram):
             return value
 if __name__ == "__main__":
     words = open_file("words.txt")
-    print(histogram(words))
-    unique_words(zmzdr)
+    his = histogram(words)
+    print(his)
+    print(unique_words(his))
+    print(frequency('Dnzfxmgfdg',his))

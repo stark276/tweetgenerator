@@ -1,6 +1,6 @@
 import random
 import sys
-def rearrange(sentence):
+def rearrange(sentence):    #range is for the index of list
   words = sentence.split(" ")
   # print(split_words)
   new_sentence = []
@@ -17,3 +17,8 @@ def rearrange(sentence):
 if __name__ == "__main__":
     sentence = " ".join(sys.argv[1:])
     rearrange(sentence)
+
+
+
+    for i in asd:
+      print(i)

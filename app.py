@@ -11,8 +11,8 @@ def word_generator():
     lines = my_file.readlines()
     my_histogram = histogram(lines)
 
-    #word = weighted_sample(my_histogram)
-    return "word"
+    word = weighted_sample(my_histogram)
+    return word
 
 if __name__ == '__main__':
     app.run(debug=True)
