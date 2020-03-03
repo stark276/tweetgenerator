@@ -32,13 +32,22 @@ class Dictogram(dict):
         if word in self:
             return self[word]
         return 0
-        
+
         #Retrieve word frequency count
 
     def sample(self):
         """Return a word from this histogram, randomly sampled by weighting
         each word's probability of being chosen by its observed frequency."""
-        # TODO: Randomly choose a word based on its frequency in this histogram
+        total = self.tokens
+        rand_num = random.randint(1, total)
+        fence = 0
+
+        for key, value in self.items():
+            if rand_num - value - fence <= 0:
+                return key
+            else:
+                fence += value
+        #Randomly choose a word based on its frequency in this histogram
 
 
 def print_histogram(word_list):
@@ -57,7 +66,7 @@ def print_histogram(word_list):
 
 
 def print_histogram_samples(histogram):
-    print('Histogram samples:')cont
+    print('Histogram samples:')
     # Sample the histogram 10,000 times and count frequency of results
     samples_list = [histogram.sample() for _ in range(10000)]
     samples_hist = Dictogram(samples_list)
