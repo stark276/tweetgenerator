@@ -16,13 +16,24 @@ class Dictogram(dict):
             for word in word_list:
                 self.add_count(word)
 
-    def add_count(self, word, count=1):
+    def add_count(self, word, cont=1):
         """Increase frequency count of given word by given count amount."""
-        # TODO: Increase word frequency by count
+        self.tokens += cont
+        
+        if self.get(word, 0) == 0:
+            self.types += 1
+
+        self[word] = self.get(word, 0) + cont
+
+        #Increase word frequency by count
 
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
-        # TODO: Retrieve word frequency count
+        if word in self:
+            return self[word]
+        return 0
+        
+        #Retrieve word frequency count
 
     def sample(self):
         """Return a word from this histogram, randomly sampled by weighting
@@ -46,7 +57,7 @@ def print_histogram(word_list):
 
 
 def print_histogram_samples(histogram):
-    print('Histogram samples:')
+    print('Histogram samples:')cont
     # Sample the histogram 10,000 times and count frequency of results
     samples_list = [histogram.sample() for _ in range(10000)]
     samples_hist = Dictogram(samples_list)
@@ -64,9 +75,9 @@ def print_histogram_samples(histogram):
     red = '\033[31m'
     reset = '\033[m'
     # Check each word in original histogram
-    for word, count in histogram.items():
+    for word, cont in histogram.items():
         # Calculate word's observed frequency
-        observed_freq = count / histogram.tokens
+        observed_freq = cont / histogram.tokens
         # Calculate word's sampled frequency
         samples = samples_hist.frequency(word)
         sampled_freq = samples / samples_hist.tokens
@@ -74,7 +85,7 @@ def print_histogram_samples(histogram):
         error = (sampled_freq - observed_freq) / observed_freq
         color = green if abs(error) < 0.05 else yellow if abs(error) < 0.1 else red
         print('| {!r:<9} '.format(word)
-            + '| {:>4} = {:>6.2%} '.format(count, observed_freq)
+            + '| {:>4} = {:>6.2%} '.format(cont, observed_freq)
             + '| {:>4} = {:>6.2%} '.format(samples, sampled_freq)
             + '| {}{:>+7.2%}{} |'.format(color, error, reset))
     print(divider)
