@@ -18,14 +18,36 @@ class Listogram(list):
 
     def add_count(self, word, count=1):
         """Increase frequency count of given word by given count amount."""
+        for index, stuff in enumerate(self):
+            if stuff[0] == word:
+                stuff[1] += count
+                self.tokens += count
+                break
+        else:
+            self.append([word, count])
+            self.types += 1
+            self.tokens += count
+
         # TODO: Increase word frequency by count
 
     def frequency(self, word):
         """Return frequency count of given word, or 0 if word is not found."""
+        for index, word_in_list in enumerate(self):
+            if word_in_list[0] == word:
+                return word_in_list[1]
+        else:
+            return 0
         # TODO: Retrieve word frequency count
 
     def __contains__(self, word):
         """Return boolean indicating if given word is in this histogram."""
+        for index, word_in_list in enumerate(self):
+            if word_in_list[0] == word:
+                return True
+        else:
+            return False
+
+            
         # TODO: Check if word is in this histogram
 
     def index_of(self, target):
