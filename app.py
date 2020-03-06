@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def word_generator():
-    my_file = open("./words.txt", "r")
+    my_file = open("./test2.txt", "r")
     lines = my_file.readlines()
     my_histogram = histogram(lines)
 
